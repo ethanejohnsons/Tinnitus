@@ -1,0 +1,21 @@
+{
+  "name": "Tinnitus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ethanejohnsons/Tinnitus.git",
+  "author": "ethanejohnsons <ethan@ejohnsons.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/builders": "^1.4.0",
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/rest": "^1.5.0",
+    "@discordjs/voice": "^0.14.0",
+    "discord-api-types": "^0.37.35",
+    "discord-player": "^5.4.0",
+    "discord.js": "^14.7.1",
+    "soundcloud-scraper": "^5.0.3",
+    "spotify-url-info": "^3.2.3",
+    "youtube-sr": "^4.3.4",
+    "ytdl-core": "^4.11.2"
+  }
+}

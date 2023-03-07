@@ -1,18 +1,22 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const { useQueue } = require('discord-player');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("pause")
         .setDescription("Pauses the current song."),
     execute: async ({client, interaction}) => {
-        const queue = await client.player.getQueue(interaction.guild);
+        const queue = useQueue(interaction.guild.id);
 
-        if (!queue) {
-            await interaction.reply("There is no song playing.");
-            return;
+        if (!queue || !queue.currentTrack) {
+            return interaction.reply("Nothing is playing???");
         }
 
-        queue.setPaused(true);
-        await interaction.reply("The current song has been paused.");
+        if (queue.node.isPaused()) {
+            return interaction.reply("It's already paused brah.");
+        }
+
+        queue.node.setPaused(true);
+        return interaction.reply("Paused.");
     }
 }

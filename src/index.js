@@ -31,11 +31,9 @@ for (const file of commandFiles) {
 }
 
 // Set up player
-client.player = new Player(client, {
-    ytdlOptions: {
-        quality: "highestaudio",
-        highWaterMark: 1 << 25
-    }
+client.player = new Player(client);
+client.player.events.on('playerStart', (queue, track) => {
+    queue.metadata.channel.send(`Started playing **${track.title}**!`);
 });
 
 // Register commands
